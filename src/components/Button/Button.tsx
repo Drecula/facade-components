@@ -1,4 +1,3 @@
-// src/Button.tsx
 import React from 'react'
 import { isNewVersion } from '../../VersionMap/VersionMap'
 

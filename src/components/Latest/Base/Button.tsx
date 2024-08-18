@@ -6,7 +6,7 @@ export interface ButtonProps {
   style?: CSSProperties
 }
 
-// new button
+// NEW button
 const Button: FC<ButtonProps> = ({ label = 'New Button', onClick, style }) => (
   <button onClick={onClick} style={style}>
     {label} (New)

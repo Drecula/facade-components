@@ -5,7 +5,7 @@ export interface ButtonProps {
   onClick: () => void
 }
 
-// old button
+// OLD button
 const Button: FC<ButtonProps> = ({ label = 'Ye Olde Button', onClick }) => (
   <button onClick={onClick}>{label} (Old)</button>
 )

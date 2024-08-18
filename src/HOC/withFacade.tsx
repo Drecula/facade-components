@@ -1,16 +1,18 @@
-import React from 'react'
+import { HTMLAttributes, ComponentType } from 'react'
 import { useVersionMapContext } from '../VersionMap/VersionMapContext'
 import { ComponentNames } from '../VersionMap/NewComponentsList'
 
+export type EnhancedNewProps<NewProps> = NewProps & { isNew: true }
+
 const withFacade = <
-  T extends React.HTMLAttributes<HTMLElement>,
-  U extends React.HTMLAttributes<HTMLElement>
+  OldProps extends HTMLAttributes<HTMLElement>,
+  NewProps extends HTMLAttributes<HTMLElement>
 >(
   componentName: ComponentNames,
-  OldComponent: React.ComponentType<T>,
-  NewComponent: React.ComponentType<U>
+  OldComponent: ComponentType<OldProps>,
+  NewComponent: ComponentType<NewProps>
 ) => {
-  return (props: T | U) => {
+  return (props: OldProps | NewProps) => {
     let isNew = false
 
     try {
@@ -20,7 +22,7 @@ const withFacade = <
       // If versionMapContext is not available, default to old component
     }
 
-    return isNew ? <NewComponent {...(props as U)} /> : <OldComponent {...(props as T)} />
+    return isNew ? <NewComponent {...(props as EnhancedNewProps<NewProps>)} isNew={isNew} /> : <OldComponent {...(props as OldProps)} />
   }
 }
 

@@ -3,6 +3,7 @@ import { FC } from 'react'
 export interface ButtonProps {
   label: string
   onClick: () => void
+  oldProp?: string
 }
 
 // OLD button

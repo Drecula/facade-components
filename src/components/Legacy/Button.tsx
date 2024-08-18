@@ -7,8 +7,8 @@ export interface ButtonProps {
 }
 
 // OLD button
-const Button: FC<ButtonProps> = ({ label = 'Ye Olde Button', onClick }) => (
-  <button onClick={onClick}>{label} (Old)</button>
+const Button: FC<ButtonProps> = ({ label = 'Ye Olde Button', onClick, oldProp }) => (
+  <button onClick={onClick}>{label} {oldProp} (Old)</button>
 )
 
 export default Button

@@ -8,9 +8,9 @@ export interface ButtonProps {
 }
 
 // NEW button
-const Button: FC<ButtonProps> = ({ label = 'New Button', onClick, style }) => (
+const Button: FC<ButtonProps> = ({ label = 'New Button', onClick, style, newProp }) => (
   <button onClick={onClick} style={style}>
-    {label} (New)
+    {label} {newProp} (New)
   </button>
 )
 

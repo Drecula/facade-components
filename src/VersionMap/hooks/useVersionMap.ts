@@ -1,7 +1,6 @@
 import React from 'react'
 import { isNewVersion, ComponentName } from '../VersionMap'
 
-
 export const useVersionMap = <T, U>(
   componentName: ComponentName,
   OldComponent: React.ComponentType<T>,

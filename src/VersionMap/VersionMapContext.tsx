@@ -1,4 +1,4 @@
-import React, { createContext, useContext, ReactNode, useState } from 'react'
+import { FC, createContext, useContext, ReactNode, useState } from 'react'
 import { newComponentsMap, ComponentNames } from './NewComponentsList'
 
 type VersionMapContextType = {
@@ -7,7 +7,7 @@ type VersionMapContextType = {
 
 const VersionMapContext = createContext<VersionMapContextType | undefined>(undefined)
 
-export const VersionMapProvider: React.FC<{ children: ReactNode; newComponents?: ComponentNames[] }> = ({ children, newComponents }) => {
+export const VersionMapProvider: FC<{ children: ReactNode; newComponents?: ComponentNames[] }> = ({ children, newComponents }) => {
   const [versionMap] = useState<Record<ComponentNames, boolean>>(() => {
     if (!newComponents) {
       return { ...newComponentsMap }
